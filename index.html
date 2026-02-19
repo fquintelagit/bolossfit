@@ -1,31 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Dessert Menu</title>
+    <title>Bolos Fit Nit | Cardápio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .card-bolo { transition: all 0.3s ease; border: 1px solid #eeeeee; padding: 15px; }
+        .card-bolo:hover { border-color: #000; }
+        /* Estilo para o Checkbox customizado P&B */
+        input[type="checkbox"] { accent-color: #000; }
+    </style>
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-bold text-center mt-10">Dessert Menu</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h2 class="text-2xl font-semibold">Chocolate Cake</h2>
-                <p class="mt-2 text-gray-600">Rich and moist chocolate cake topped with creamy chocolate frosting.</p>
-                <a href="https://wa.me/?text=I'd like to order the Chocolate Cake!" class="inline-block mt-4 bg-blue-500 text-white rounded px-4 py-2">Order Now</a>
+<body class="bg-white text-black">
+
+    <header class="py-10 px-6 text-center border-b border-stone-100">
+        <h1 class="text-3xl font-bold tracking-tighter">@bolossfit.nit</h1>
+        <div class="w-12 h-1 bg-black mx-auto mt-2"></div>
+        <p class="text-xs text-stone-500 mt-4 tracking-widest uppercase font-light">Niterói · Saudável · Artesanal</p>
+    </header>
+
+    <main class="max-w-md mx-auto p-6 pb-24">
+        
+        <div class="card-bolo bg-white rounded-none mb-10 overflow-hidden">
+            <div class="relative h-64 bg-stone-100 flex items-center justify-center text-stone-400 border-b border-stone-100">
+                <span class="text-xs uppercase tracking-widest">Foto do Bolo</span>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h2 class="text-2xl font-semibold">Vanilla Ice Cream</h2>
-                <p class="mt-2 text-gray-600">Creamy vanilla ice cream served with chocolate syrup.</p>
-                <a href="https://wa.me/?text=I'd like to order the Vanilla Ice Cream!" class="inline-block mt-4 bg-blue-500 text-white rounded px-4 py-2">Order Now</a>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h2 class="text-2xl font-semibold">Fruit Tart</h2>
-                <p class="mt-2 text-gray-600">A delightful tart filled with fresh fruits and pastry cream.</p>
-                <a href="https://wa.me/?text=I'd like to order the Fruit Tart!" class="inline-block mt-4 bg-blue-500 text-white rounded px-4 py-2">Order Now</a>
+            <div class="py-6">
+                <div class="flex justify-between items-baseline">
+                    <h2 class="text-xl font-bold uppercase tracking-tight">Bolo de Cenoura Fit</h2>
+                    <span class="text-lg font-light">R$ 38</span>
+                </div>
+                <p class="text-sm text-stone-500 mt-2 leading-relaxed">Farinha de aveia, xilitol e cenouras frescas. Zero açúcar refinado.</p>
+                
+                <div class="mt-6 space-y-3">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-stone-400 border-b pb-1">Adicionais</p>
+                    
+                    <label class="flex items-center justify-between cursor-pointer group">
+                        <span class="text-sm group-hover:underline">Ganache 70% Cacau</span>
+                        <div class="flex items-center">
+                            <span class="text-xs text-stone-400 mr-3">+ R$ 12</span>
+                            <input type="checkbox" class="opcional-check w-4 h-4" data-nome="Ganache 70%" data-preco="12">
+                        </div>
+                    </label>
+
+                    <label class="flex items-center justify-between cursor-pointer group">
+                        <span class="text-sm group-hover:underline">Doce de Leite Fit</span>
+                        <div class="flex items-center">
+                            <span class="text-xs text-stone-400 mr-3">+ R$ 10</span>
+                            <input type="checkbox" class="opcional-check w-4 h-4" data-nome="Doce de Leite Fit" data-preco="10">
+                        </div>
+                    </label>
+                </div>
+
+                <button onclick="enviarPedido('Bolo de Cenoura Fit', 38)" class="w-full mt-8 bg-black text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-stone-800 transition-colors">
+                    Fazer Pedido
+                </button>
             </div>
         </div>
-    </div>
+
+        <div class="card-bolo bg-white rounded-none mb-10 overflow-hidden border-t pt-6">
+            <div class="relative h-64 bg-stone-100 flex items-center justify-center text-stone-400 border-b border-stone-100">
+                <span class="text-xs uppercase tracking-widest">Foto do Brownie</span>
+            </div>
+            <div class="py-6">
+                <div class="flex justify-between items-baseline">
+                    <h2 class="text-xl font-bold uppercase tracking-tight">Brownie Low Carb</h2>
+                    <span class="text-lg font-light">R$ 45</span>
+                </div>
+                <p class="text-sm text-stone-500 mt-2 leading-relaxed">Chocolate belga 70%, farinha de amêndoas e nozes crocantes.</p>
+                
+                <button onclick="enviarPedido('Brownie Low Carb', 45)" class="w-full mt-8 bg-black text-white py-4 text-xs font-bold uppercase tracking-widest hover:bg-stone-800 transition-colors">
+                    Fazer Pedido
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="fixed bottom-0 w-full bg-white border-t border-stone-200 p-4 text-center">
+        <p class="text-[10px] uppercase tracking-tighter text-stone-400">
+            Niterói: Icaraí · Centro · Região Oceânica
+        </p>
+    </footer>
+
+    <script>
+        function enviarPedido(nomeBolo, precoBase) {
+            const fone = "5521969319669"; // SUBSTITUA PELO SEU NÚMERO
+            let texto = `*PEDIDO @bolossfit.nit*\n\n`;
+            texto += `🍰 *Item:* ${nomeBolo}\n`;
+            texto += `💰 *Valor base:* R$ ${precoBase},00\n`;
+            
+            let total = precoBase;
+            const checks = document.querySelectorAll('.opcional-check:checked');
+            
+            if (checks.length > 0) {
+                texto += `\n*ADICIONAIS:*`;
+                checks.forEach(c => {
+                    texto += `\n+ ${c.dataset.nome} (R$ ${c.dataset.preco},00)`;
+                    total += parseInt(c.dataset.preco);
+                });
+            }
+
+            texto += `\n\n*TOTAL: R$ ${total},00*`;
+            texto += `\n\nOlá! Gostaria de confirmar a disponibilidade para entrega em Niterói.`;
+
+            const link = `https://wa.me/${fone}?text=${encodeURIComponent(texto)}`;
+            window.open(link, '_blank');
+        }
+    </script>
 </body>
 </html>
